@@ -1,0 +1,657 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags + extra -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description"
+    content="This is a dummy website meant to display an HTML Form design practice project for the Coding and Data Skills for Communicators course. All information is fictional and for educational purposes only. The form is purposefully nonfunctional. Large languages models assissted in the formatting some code in accordance with individiual project requirements and professor advising. Created Fall 2025." />
+  <meta name="author" content="Harley D." />
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+  <!--FONTS-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Epunda+Slab:ital,wght@0,300..900;1,300..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lexend+Deca:wght@100..900&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+    rel="stylesheet">
+
+  <title>Environment Survey</title>
+  <!-- <link rel="icon" type="image/x-icon" href="favicon.ico"> -->
+  <style>
+    /*fitting top banner for viewport*/
+    .banner-image {
+      width: 100%;
+      height: 55vh;
+      /*adjust viewport height*/
+      object-fit: cover;
+      /*banner image covers heading area*/
+    }
+
+    /*changing color for brand color in the dark theme*/
+    .bg-dark {
+      --bs-bg-opacity: 1;
+      background-color: #c6b9a8 !important;
+    }
+
+    /*navbar color for brand name*/
+    .navbar-brand {
+      color: #312928 !important;
+      size: 24;
+      font-weight: 550;
+      font-family: "Poppins", sans-serif;
+      font-weight: 700;
+    }
+
+    /*changing navbar text colors*/
+    .navbar[data-bs-theme="dark"] {
+      --bs-navbar-color: #63504e;
+      --bs-navbar-active-color: #312928;
+      --bs-navbar-hover-color: #cee0b6;
+    }
+
+    /*changing "Learn" button color*/
+    .btn-primary {
+      --bs-btn-color: #63504e;
+      --bs-btn-bg: #a7be87;
+      --bs-btn-border-color: #a7be87;
+      --bs-btn-hover-color: #312928;
+      --bs-btn-hover-bg: #699f63;
+      --bs-btn-hover-border-color: #699f63;
+      --bs-btn-focus-shadow-rgb: 49, 132, 253;
+      --bs-btn-active-color: #312928;
+      --bs-btn-active-bg: #6fa893;
+      --bs-btn-active-border-color: #6fa893;
+      --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+      --bs-btn-disabled-color: #312928;
+      --bs-btn-disabled-bg: #677962;
+      --bs-btn-disabled-border-color: #677962;
+    }
+
+    /*misc link color stuff*/
+    .nav-link {
+      font-weight: 500;
+    }
+
+    .nav-link.active {
+      font-weight: 600;
+    }
+
+    input {
+      margin-right: .7rem;
+    }
+
+    /*CUSTOM CHECKBOX CLASSES*/
+    /*experimenting with customizing checkboxes*/
+    .form-check-input {
+      display: none;
+    }
+
+    /* LABEL STYLING */
+    .form-check-label {
+      position: relative;
+      /* Needed for positioning the pseudo-element */
+      padding-left: 2em;
+      /* Create space for the custom checkbox */
+      cursor: pointer;
+      /* Show a hand cursor on hover */
+      line-height: 1em;
+      /* Vertically align text with the box */
+    }
+
+    /* 3. CREATE THE CUSTOM CHECKBOX BOX */
+    .form-check-label::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+
+      /* checkbox stylizing */
+      width: 1em;
+      height: 1em;
+      border: 2px solid #699f63;
+      /*  border color */
+      border-radius: 0.25rem;
+      /* slightly rounded corners */
+      background-color: #fff;
+      transition: all 0.2s ease-in-out;
+    }
+
+
+    .form-check-input:checked+.form-check-label::before {
+      background-color: #699f63;
+      border-color: #699f63;
+    }
+
+    /* 5. ADD THE CHECKMARK (USING AN SVG BACKGROUND IMAGE) */
+    .form-check-input:checked+.form-check-label::before {
+      /* This is Bootstrap's own checkmark SVG, URL-encoded for CSS */
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3e%3c/svg%3e");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 70%;
+    }
+
+    .bg-dark {
+      --bs-bg-opacity: 1;
+      background-color: #c6b9a8 !important;
+    }
+
+    .bg-footer {
+      --bs-bg-opacity: 0.25;
+      background-color: #c6b9a8 !important;
+    }
+
+    /*link color styling*/
+    a {
+      color: #c8ea99;
+    }
+
+    a:visited {
+      color: #5c8954;
+    }
+
+    a:hover {
+      color: #f2fddc;
+    }
+
+    /*footer viewport styling*/
+    /* Ensure the body takes up at least the full height of the viewport */
+    html,
+    body {
+      height: 100%;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+    }
+
+    main {
+      flex: 1 0 auto;
+      /* This makes the main content area grow to fill available space */
+    }
+
+    footer {
+      flex-shrink: 0;
+      /* Prevents the footer from shrinking */
+    }
+
+    /* FOOTER STYLING */
+    .footer-custom {
+      background-color: #c6b9a8;
+    }
+
+    select {
+      width: 20%;
+      padding: 14px 20px;
+      border: #699f63;
+      border-radius: 4px;
+      background-color: #fff;
+    }
+
+    input[type=button],
+    input[type=submit],
+    input[type=reset] {
+      background-color: #a7be87;
+      border: none;
+      color: #5b634e;
+      padding: 16px 32px;
+      text-decoration: none;
+      font-weight: 600;
+      margin: 4px 8px;
+      cursor: pointer;
+      border-radius: 0.25rem;
+    }
+
+    /*custom dropdown menu text colors and stuff*/
+    .dropdown-menu {
+      --bs-dropdown-bg: #f0ebe6;
+      --bs-dropdown-link-hover-bg: #e9ddd1;
+      --bs-dropdown-color: #5b634e;
+      --bs-dropdown-link-color: #5b634e;
+      --bs-dropdown-link-hover-color: #5b634e;
+    }
+
+    /*CUSTOM BUTTON STYLING*/
+
+    .form-check-custom-radio .form-check-input[type="radio"] {
+      display: none;
+    }
+
+    .form-check-custom-radio .form-check-label {
+      position: relative;
+      padding-left: 1.5em;
+      cursor: pointer;
+      line-height: 1.1em;
+      display: inline-block;
+      margin-bottom: 0.5rem;
+    }
+
+    /* CUSTOM OUTER CIRCLE */
+    .form-check-custom-radio .form-check-label::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 1em;
+      height: 1em;
+      border: 1px solid #699f63;
+      border-radius: 50%;
+      /* makes the button a circle */
+      background-color: #fff;
+      transition: all 0.2s ease-in-out;
+    }
+
+    /* inner dot styling */
+    .form-check-custom-radio .form-check-label::after {
+      content: "";
+      position: absolute;
+      left: 0.25em;
+      top: 50%;
+      width: 0.5em;
+      height: 0.5em;
+      border-radius: 50%;
+      background-color: #fff;
+      transform: translateY(-50%) scale(0);
+      transition: transform 0.2s ease-in-out;
+    }
+
+
+    .form-check-custom-radio .form-check-input[type="radio"]:checked+.form-check-label::before {
+      background-color: #699f63;
+      border-color: #699f63;
+    }
+
+    .form-check-custom-radio .form-check-input[type="radio"]:checked+.form-check-label::after {
+      transform: translateY(-50%) scale(1);
+    }
+
+    /*text class for better looking answers; size increased slightly*/
+    .textnorm {
+      font-size: 1.3rem;
+      font-weight: 350;
+    }
+
+    h3 {
+      font-weight: 500;
+      font-family: "Lato", Verdana, Tahoma, sans-serif;
+    }
+
+    p {
+      font-family: "Outfit", Verdana, Tahoma, sans-serif;
+      font-weight: 200;
+    }
+
+    .display-3 {
+      font-family: "Lexend Deca", Verdana, Tahoma, sans-serif;
+    }
+  </style>
+</head>
+
+<body style="background-color: #f0ebe6;">
+
+
+  <!--NAV-->
+  <div id="nav">
+    <!--BEGIN NAV COMPONENT-->
+    <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+      <!--go into css and find css element for bg-dark, go into style and change color to #c6b9a8 to change header color-->
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">San Marcos Ecology Coalition</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <!-- these page links are purposefully left blank as the assignment was to create a one page website. -->
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Research</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact</a>
+            </li>
+            <!-- DROPDOWN-->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Get Involved
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#">Public Events</a></li>
+                <li><a class="dropdown-item" href="#">Volunteer</a></li>
+                <li><a class="dropdown-item" href="#">Donate</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!--END NAV COMPONENT-->
+  </div>
+
+  <!--HEADER-->
+  <div id="header" size="1920 px" width="100%">
+    <!--BEGIN JUMBO IMAGE-->
+    <!-- optimize for web -->
+    <img src="treebannercantotxst.JPG" class="banner-image"
+      alt="A photo of Sewell Park in San Marcos, Texas, sourced from Canto">
+  </div>
+  <!--END JUMBOTRON-->
+  </div>
+  <!--  START INTRO BLURB JUMBOTRON-->
+  <div id="home" class="container-fluid p-5 ">
+    <!--Changed class to make it not centered (used to be text-center)-->
+    <div class="headIntro">
+      <div class="row">
+        <div class="col-10 mx-auto">
+          <h1 class="display-3 pb-4">Environment Survey</h1>
+          <p style="font-size: 1.5rem; font-weight: 300; padding-right: 5rem;">San Marcos Ecology Coalition is an alliance of citizens
+            dedicated to educating others about the natural world and improving human interactions with the environment.
+            As part of our mission, we conduct research on local attitudes towards and experiences with nature, covering
+            topics such as encounters with plant life and animal life, littering/pollution, and time spent outdoors. By
+            filling out this simple survey, you will help our coalition analyze local sentiments toward nature to inform
+            future educational sources on deep ecology and further research. </p>
+          <p class="lead" style="padding-top: 15px;">Browse the rest of our website to learn more about our organization
+            and how you can help.</p>
+
+          <a class="btn btn-primary btn-lg my-3" href="#" role="button">Learn more</a>
+          <hr class="my-8">
+          <p class="lead" style="padding-top: 20px; padding-right: 5rem;">This is a short, voluntary survey. If at any time you do not wish
+            to complete the survey, you may exit the website. Please select the answers that best fit your honest
+            opinions and life experience, making sure to address every question. No sensitive information will be taken
+            for this survey. </p>
+        </div>
+      </div>
+  </div>
+  <br>
+  <!--SECTION-->
+  <!--SURVEY QUESTIONS BEGIN HERE-->
+
+  <div id="section" class="container px-5">
+    <div class="row"> <!--START ROW TEST-->
+      <form id="myform">
+
+        <!--Q1 STYLE TWO DROPDOWN-->
+        <h3 class="mb-3">1. How many hours a day do you spend outside?</h3>
+        <br>
+        <select id="car">
+          <option value="lessone">Less than 1</option>
+          <option value="one">1</option>
+          <option value="two">2</option>
+          <option value="threfour">3-4</option>
+          <option value="fivesix">5-6</option>
+          <option value="moresix">More than 6</option>
+        </select>
+
+    </div>
+
+    <!--END ROW TEST-->
+
+    <hr class="my-4">
+    <!--Q2 SATISFIED-->
+
+
+    <h3 class="mb-3 pb-2">2. Are you satisfied with the amount of time you currently spend outdoors?</h3>
+    <div class="row">
+      <div class="col-md-4 form-check form-check-custom-radio">
+        <input class="form-check-input" type="radio" name="satisfaction" value="yes" id="yes">
+        <label class="form-check-label textnorm" for="yes">Yes</label>
+      </div>
+      <div class="col-md-4 form-check form-check-custom-radio">
+        <input class="form-check-input" type="radio" name="satisfaction" value="no" id="no">
+        <label class="form-check-label textnorm" for="no">No</label>
+      </div>
+    </div>
+    <hr class="my-4">
+
+
+    <!--Q3 OUTDOOR ACTIVITIES-->
+    <h3 class="mb-3 pb-2">3. What activity takes up the majority of your time outside?</h3>
+    <div class="row">
+      <div class="col-md-6 form-check form-check-custom-radio">
+        <input class="form-check-input" type="radio" name="outdoor" value="travel" id="travel">
+        <label class="form-check-label" for="travel">Traveling from one task to another</label>
+      </div>
+      <div class="col-md-6 form-check form-check-custom-radio">
+        <input class="form-check-input" type="radio" name="outdoor" value="recreation" id="recreation">
+        <label class="form-check-label" for="recreation">Engaging in sports/recreation</label>
+      </div>
+      <div class="col-md-6 form-check form-check-custom-radio">
+        <input class="form-check-input" type="radio" name="outdoor" value="outdoorjob" id="outdoorjob">
+        <label class="form-check-label" for="outdoorjob">Working an outdoor job</label>
+      </div>
+      <div class="col-md-6 form-check form-check-custom-radio">
+        <input class="form-check-input" type="radio" name="outdoor" value="creative" id="creative">
+        <label class="form-check-label" for="creative">Doing creative work</label>
+      </div>
+      <div class="col-md-6 form-check form-check-custom-radio">
+        <input class="form-check-input" type="radio" name="outdoor" value="Relax" id="Relax">
+        <label class="form-check-label" for="Relax">Relaxing/taking a break</label>
+      </div>
+      <div class="col-md-6 form-check form-check-custom-radio">
+        <input class="form-check-input" type="radio" name="outdoor" value="Meet" id="Meet">
+        <label class="form-check-label" for="Meet">Meeting with others outdoors</label>
+      </div>
+    </div>
+    <hr class="my-4">
+
+
+    <!--Q4 OBSTACLE-->
+    <div class="row">
+      <h3 class="mb-3 pb-2">4. Which of the following describes your inability to spend more time in nature?</h3>
+      <br>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" name="factor" value="time" id="time">
+        <label class="form-check-label" for="time">
+          I lack the time outside of work/school
+        </label>
+      </div>
+
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" name="factor" value="distance" id="distance">
+        <label class="form-check-label" for="distance">
+          I live too far from natural spaces
+        </label>
+      </div>
+
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" name="factor" value="comfort" id="comfort">
+        <label class="form-check-label" for="comfort">
+          I'm uncomfortable outside
+        </label>
+      </div>
+
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" name="factor" value="danger" id="danger">
+        <label class="form-check-label" for="danger">
+          The weather/environment is too dangerous for me outside
+        </label>
+      </div>
+
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" name="factor" value="physical" id="physical">
+        <label class="form-check-label" for="physical">
+          I'm not physically able to spend much time outside
+        </label>
+      </div>
+
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" name="factor" value="interest" id="interest">
+        <label class="form-check-label" for="interest">
+          I'm not interested in spending more time outside
+        </label>
+      </div>
+
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" name="factor" value="none" id="none">
+        <label class="form-check-label" for="none">
+          None of these
+        </label>
+      </div>
+    </div>
+    <hr class="my-4">
+    <!--END Q4-->
+
+    <!--Q5 ANIMALS-->
+
+    <h3 class="mb-3 pb-2">5. Are you knowledgeable about the animal life local to your area?</h3>
+    <div class="row">
+      <div class="col-md-4 form-check form-check-custom-radio">
+        <input class="form-check-input" type="radio" name="animals" value="animyes" id="animyes">
+        <label class="form-check-label textnorm" for="animyes">Yes</label>
+      </div>
+      <div class="col-md-4 form-check form-check-custom-radio">
+        <input class="form-check-input" type="radio" name="animals" value="animno" id="animno">
+        <label class="form-check-label textnorm" for="animno">No</label>
+      </div>
+    </div>
+    <hr class="my-4">
+
+    <!--Q6 PLANTS-->
+
+    <h3 class="mb-3 pb-2">6. Are you knowledgeable about the plant life local to your area?</h3>
+    <div class="row">
+      <div class="col-md-4 form-check form-check-custom-radio">
+        <input class="form-check-input" type="radio" name="plants" value="plantyes" id="plantyes">
+        <label class="form-check-label textnorm" for="plantyes">Yes</label>
+      </div>
+      <div class="col-md-4 form-check form-check-custom-radio">
+        <input class="form-check-input" type="radio" name="plants" value="plantno" id="plantno">
+        <label class="form-check-label textnorm" for="plantno">No</label>
+      </div>
+    </div>
+    <hr class="mt-4 mb-3">
+
+    <br>
+
+    <!--Q7 ECOLOGY-->
+
+    <h3 class="mb-3 pb-2">7. Are you familiar with the concept of deep ecology?</h3>
+    <div class="row">
+      <div class="col-md-4 form-check form-check-custom-radio">
+        <input class="form-check-input" type="radio" name="ecology" value="ecologyyes" id="ecologyyes">
+        <label class="form-check-label textnorm" for="ecologyyes">Yes</label>
+      </div>
+      <div class="col-md-4 form-check form-check-custom-radio">
+        <input class="form-check-input" type="radio" name="ecology" value="ecologyno" id="ecologyno">
+        <label class="form-check-label textnorm" for="ecologyno">No</label>
+      </div>
+    </div>
+    <hr class="my-4">
+
+    <!--Q8 OBSTACLE-->
+    <h3 class="mb-3">8. Which of the following describes your view of the natural world?</h3>
+
+    <br>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="view" value="setting" id="setting">
+      <label class="form-check-label" for="setting">
+        Nature is the setting for my daily tasks
+      </label>
+    </div>
+
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="view" value="spirit" id="spirit">
+      <label class="form-check-label" for="spirit">
+        Nature connects with me on a spiritual level
+      </label>
+    </div>
+
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="view" value="muse" id="muse">
+      <label class="form-check-label" for="muse">
+        Nature is my creative inspiration
+      </label>
+    </div>
+
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="view" value="threat" id="threat">
+      <label class="form-check-label" for="threat">
+        Nature is a threat to my safety and/or comfort
+      </label>
+    </div>
+
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="view" value="pleasing" id="pleasing">
+      <label class="form-check-label" for="pleasing">
+        Nature is aesthetically pleasing
+      </label>
+    </div>
+
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="view" value="inferior" id="inferior">
+      <label class="form-check-label" for="inferior">
+        Nature is inferior to human accomplishments
+      </label>
+    </div>
+
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="view" value="obstacle" id="obstacle">
+      <label class="form-check-label" for="obstacle">
+        Nature is an obstacle
+      </label>
+    </div>
+
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="view" value="study" id="study">
+      <label class="form-check-label" for="study">
+        Nature is something to study/learn from
+      </label>
+    </div>
+    <hr class="my-4">
+
+
+
+
+
+
+
+    </form>
+
+    <input type="submit" value="Submit">
+    <input type="reset" value="Reset">
+    <br>
+  </div>
+  </div>
+
+
+
+
+  <!--FOOTER DIV-->
+  <footer class="footer-custom text-white py-4">
+
+    <div class="container text-center">
+      <div class="row">
+
+        <!-- DISCLAIMER -->
+        <div class="mb-3 mb-md-0">
+          <p class="m-0 text-center"> Contact Info: <a
+              href="mailto:EcologyCoalitionSMTX@gmail.com">EcologyCoalitionSMTX@gmail.com</a> </p>
+          <p class="m-0 text-center mt-2">This page is for educational purposes only and all information is fictional
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+    crossorigin="anonymous"></script>
+
+</body>
+
+</html>
